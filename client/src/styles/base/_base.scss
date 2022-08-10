@@ -1,0 +1,16 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+img {
+  max-width: 100%;
+}
+body {
+  font-family: $font-noto-sans;
+  background-color: $secondary;
+  color: $text-white;
+}

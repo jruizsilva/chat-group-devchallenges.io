@@ -1,0 +1,10 @@
+// Reset default styles
+@import "./base/reset";
+// Variables
+@import "./base/settings";
+// Initial styles and fonts
+@import "./base/base";
+
+// Components
+@import "./components/sidebar";
+@import "./components/buttons";
