@@ -1,5 +1,8 @@
 @use './base/base';
 
 // Components
+@use './components/header';
+@use './components/main';
 @use './components/buttons';
+@use './components/form';
 @use './components/sidebar';

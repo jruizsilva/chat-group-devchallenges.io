@@ -1,0 +1,23 @@
+@use '../base/settings';
+@use '../base/mixins';
+
+.btn {
+  @include mixins.btn(settings.$button-bg);
+  @include mixins.center;
+  height: 38px;
+  width: 38px;
+
+  &__icon {
+    font-size: 20px;
+    margin-right: -2px;
+  }
+}
+
+.btn-sm {
+  height: 32px;
+  width: 32px;
+}
+.btn-lg {
+  height: 42px;
+  width: 42px;
+}

@@ -1,0 +1,20 @@
+@use '../base/settings';
+
+@mixin btn($bg) {
+  background-color: $bg;
+  border-radius: 8px;
+}
+
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex($justify, $align, $wrap: nowrap, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}

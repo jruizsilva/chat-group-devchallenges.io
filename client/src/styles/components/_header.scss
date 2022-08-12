@@ -1,0 +1,19 @@
+@use '../base/settings';
+@use '../base/mixins';
+
+.header {
+  padding: 18px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  @include mixins.flex(flex-start, center);
+
+  &__menu_icon {
+    @include mixins.center;
+  }
+  &__h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: settings.$text-white;
+    margin-left: 18px;
+  }
+}
