@@ -1,10 +1,5 @@
-// Reset default styles
-@import "./base/reset";
-// Variables
-@import "./base/settings";
-// Initial styles and fonts
-@import "./base/base";
+@use './base/base';
 
 // Components
-@import "./components/buttons";
-@import "./components/sidebar";
+@use './components/buttons';
+@use './components/sidebar';
