@@ -2,7 +2,8 @@
 @use '../base/mixins';
 
 .btn {
-  @include mixins.btn(settings.$button-bg);
+  border-radius: 8px;
+  background-color: transparent;
   @include mixins.center;
   height: 38px;
   width: 38px;
@@ -11,6 +12,12 @@
     font-size: 20px;
     margin-right: -2px;
   }
+}
+.btn-primary {
+  background-color: settings.$button-bg;
+}
+.btn-secondary {
+  background-color: settings.$secondary;
 }
 
 .btn-sm {

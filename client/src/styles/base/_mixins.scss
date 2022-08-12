@@ -1,10 +1,5 @@
 @use '../base/settings';
 
-@mixin btn($bg) {
-  background-color: $bg;
-  border-radius: 8px;
-}
-
 @mixin center() {
   display: flex;
   justify-content: center;
