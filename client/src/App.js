@@ -8,7 +8,7 @@ export const App = () => {
     <>
       <Header />
       <Main />
-      <Aside />
+      {/* <Aside /> */}
     </>
   );
 };

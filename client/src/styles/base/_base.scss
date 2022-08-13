@@ -9,6 +9,11 @@
   vertical-align: baseline;
 }
 
+// Oculta la barra de scroll
+::-webkit-scrollbar {
+  display: none;
+}
+
 /* Evitamos problemas con las imagenes */
 img,
 picture,

@@ -12,7 +12,7 @@
     width: 100%;
     padding: 18px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    @include mixins.flex(flex-start, center);
+    @include mixins.flex(space-between, center);
 
     &__button {
       @include mixins.center;
@@ -24,5 +24,15 @@
       color: settings.$text-white;
       margin-left: 18px;
     }
+  }
+
+  &__main {
+    padding: 18px;
+  }
+  &__form {
+  }
+  &__box {
+  }
+  &__input {
   }
 }
