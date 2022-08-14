@@ -7,10 +7,13 @@
   height: 100vh;
   width: 85vw;
   background-color: settings.$primary;
+  display: flex;
+  flex-direction: column;
 
   &__header {
     width: 100%;
     padding: 18px;
+    margin-bottom: 18px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     @include mixins.flex(space-between, center);
 
@@ -27,12 +30,122 @@
   }
 
   &__main {
-    padding: 18px;
+    padding: 0 18px;
   }
   &__form {
+    margin-bottom: 32px;
   }
   &__box {
+    position: relative;
+    background-color: settings.$input-bg;
+    border-radius: 12px;
+    height: 52px;
+  }
+  &__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 16px;
+    height: 17px;
+    width: 17px;
+    font-size: 17px;
+    margin: auto;
   }
   &__input {
+    padding: 16px;
+    padding-left: 42px;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+  }
+  &__ul {
+    overflow-y: auto;
+  }
+  &__li {
+    @include mixins.flex(flex-start, center);
+    margin-bottom: 16px;
+  }
+  &__icon--item {
+    @include mixins.center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__h3 {
+    text-transform: uppercase;
+    margin-left: 12px;
+    font-family: Noto Sans;
+    font-size: 18px;
+    font-weight: 700;
+    color: settings.$text-channel;
+  }
+  &__footer {
+    margin-top: auto;
+    position: sticky;
+    bottom: 0;
+    height: 75px;
+    background-color: settings.$primary-darker;
+    padding: 16px;
+    @include mixins.flex(flex-start, center);
+  }
+  &__icon--profile {
+    text-transform: uppercase;
+  }
+  &__h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: settings.$text-name;
+    margin-left: 16px;
+  }
+  &__button {
+    margin-left: auto;
+    @include mixins.flex(center, center);
+  }
+  &__icon--menu {
+    color: settings.$text-channel;
+  }
+  &__button--close {
+    position: fixed;
+    right: 8px;
+    top: 10px;
+    border-radius: 12px;
+    height: 38px;
+    width: 38px;
+    background-color: settings.$primary;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  &__icon--close {
+    @include mixins.flex(center, center);
+  }
+  &__button--back {
+    @include mixins.flex(center, center);
+    margin-right: 16px;
+  }
+  &__icon--back {
+    font-size: 20px;
+    color: settings.$text-white;
+    // @include mixins.flex(center, center);
+  }
+  &__div--channel {
+    margin-bottom: 18px;
+  }
+  &__h3--channel {
+    margin-bottom: 18px;
+    margin-left: 0;
+  }
+  &__p--channel {
+    font-size: 18px;
+    font-weight: 400;
+    color: settings.$text-white;
+  }
+  &__h3--members {
+    margin-bottom: 18px;
+    margin-left: 0;
+  }
+  &__h4--members {
+    text-transform: capitalize;
   }
 }

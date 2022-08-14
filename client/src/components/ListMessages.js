@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Message } from './Message';
 
 const calcHeightChat = () => {
-  return window.innerHeight - 60;
+  return window.innerHeight - 120;
 };
 
 export const ListMessages = () => {
