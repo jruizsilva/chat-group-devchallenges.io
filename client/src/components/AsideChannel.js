@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { closeMenu } from '../store/slices/ui/uiSlice';
+
 let channelDesc = document.querySelector('.aside__p--channel');
 
 const calcHeightMembers = (channelDescHeight = 0) => {
@@ -7,9 +11,17 @@ const calcHeightMembers = (channelDescHeight = 0) => {
 
 export const AsideChannel = () => {
   const [membersHeight, setMembersHeight] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { ui } = useSelector((state) => state);
 
-  const handleMembersHeightOnResize = () => {
-    setMembersHeight(calcHeightMembers(channelDesc?.offsetHeight));
+  const { showMenu } = ui;
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
+  const handleCloseMenu = () => {
+    dispatch(closeMenu());
   };
 
   useEffect(() => {
@@ -20,16 +32,19 @@ export const AsideChannel = () => {
   }, [membersHeight]);
 
   useEffect(() => {
+    const handleMembersHeightOnResize = () => {
+      setMembersHeight(calcHeightMembers(channelDesc?.offsetHeight));
+    };
     window.addEventListener('resize', handleMembersHeightOnResize);
     return () => {
       window.removeEventListener('resize', handleMembersHeightOnResize);
     };
-  }, [handleMembersHeightOnResize, calcHeightMembers]);
+  }, []);
 
   return (
-    <aside className='aside'>
+    <aside className={`aside ${showMenu && 'aside--active'}`}>
       <header className='aside__header'>
-        <button className='aside__button--back'>
+        <button className='aside__button--back' onClick={handleBackClick}>
           <span className='material-symbols-rounded aside__icon--back'>
             arrow_back_ios
           </span>
@@ -78,7 +93,7 @@ export const AsideChannel = () => {
           </span>
         </button>
       </div>
-      <button className='aside__button--close'>
+      <button className='aside__button--close' onClick={handleCloseMenu}>
         <span className='material-symbols-rounded aside__icon--close'>
           close
         </span>
