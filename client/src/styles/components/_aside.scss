@@ -28,17 +28,6 @@
     margin-bottom: 18px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     @include mixins.flex(space-between, center);
-
-    &__button {
-      @include mixins.center;
-    }
-    &__h2 {
-      font-size: 18px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: settings.$text-white;
-      margin-left: 18px;
-    }
   }
 
   &__main {
@@ -116,7 +105,6 @@
     margin-left: 16px;
   }
   &__button {
-    margin-left: auto;
     @include mixins.flex(center, center);
   }
   &__icon--menu {
@@ -142,7 +130,6 @@
   &__icon--back {
     font-size: 20px;
     color: settings.$text-white;
-    // @include mixins.flex(center, center);
   }
   &__div--channel {
     margin-bottom: 18px;
@@ -162,5 +149,49 @@
   }
   &__h4--members {
     text-transform: capitalize;
+  }
+  &__button--dropdown-menu {
+    margin-left: auto;
+    position: relative;
+    @include mixins.center;
+  }
+}
+.dropdown-menu {
+  height: 173px;
+  width: 192px;
+  position: absolute;
+  z-index: 5;
+  top: -173px;
+  right: 0;
+  border-radius: 12px;
+  background: settings.$secondary;
+  padding: 16px 12px;
+  border: 1px solid settings.$input-bg;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  display: none;
+
+  &--active {
+    display: block;
+  }
+
+  &__li {
+    padding: 12px;
+    @include mixins.flex(flex-start, center);
+    border-radius: 8px;
+    &--active {
+      background-color: settings.$input-bg;
+    }
+    &:last-child {
+      border-top: 1px solid settings.$input-bg;
+      border-radius: 0px;
+      color: settings.$text-logout;
+    }
+  }
+  &__p {
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+  }
+  &__icon {
   }
 }

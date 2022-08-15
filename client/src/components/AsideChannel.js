@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeMenu, openModal } from '../store/slices/ui/uiSlice';
+import {
+  closeMenu,
+  openModal,
+  toggleDropdownMenu,
+  closeDropdownMenu,
+} from '../store/slices/ui/uiSlice';
+import { DropdownMenu } from './DropdownMenu';
 
 let channelDesc = document.querySelector('.aside__p--channel');
 
@@ -19,6 +25,7 @@ export const AsideChannel = () => {
 
   const handleBackClick = () => {
     navigate('/');
+    dispatch(closeDropdownMenu());
   };
   const handleCloseMenu = () => {
     dispatch(closeMenu());
@@ -26,6 +33,9 @@ export const AsideChannel = () => {
 
   const handleOpenModal = () => {
     dispatch(openModal());
+  };
+  const handleOpenDropdownMenu = () => {
+    dispatch(toggleDropdownMenu());
   };
 
   useEffect(() => {
@@ -91,10 +101,14 @@ export const AsideChannel = () => {
       <div className='aside__footer'>
         <div className='aside__icon--profile btn btn-secondary btn-lg'>Me</div>
         <h4 className='aside__h4'>Xanthe Neal</h4>
-        <button className='aside__button'>
-          <span className='material-symbols-rounded aside__icon--menu'>
+        <button className='aside__button--dropdown-menu'>
+          <span
+            className='material-symbols-rounded aside__icon--menu'
+            onClick={handleOpenDropdownMenu}
+          >
             keyboard_arrow_down
           </span>
+          <DropdownMenu />
         </button>
       </div>
       <button className='aside__button--close' onClick={handleCloseMenu}>

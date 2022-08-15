@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeMenu, openModal } from '../store/slices/ui/uiSlice';
+import {
+  closeMenu,
+  openModal,
+  toggleDropdownMenu,
+  closeDropdownMenu,
+} from '../store/slices/ui/uiSlice';
+import { DropdownMenu } from './DropdownMenu';
 
 const calcHeightChannels = () => {
   return window.innerHeight - 237;
@@ -15,9 +21,9 @@ export const Aside = () => {
 
   const { isOpenMenu } = ui;
 
-  console.log(ui);
   const handleChannelClick = () => {
     navigate('/channel/1');
+    dispatch(closeDropdownMenu());
   };
 
   const handleCloseMenu = () => {
@@ -26,6 +32,10 @@ export const Aside = () => {
 
   const handleOpenModal = () => {
     dispatch(openModal());
+  };
+
+  const handleOpenDropdownMenu = () => {
+    dispatch(toggleDropdownMenu());
   };
 
   useEffect(() => {
@@ -79,10 +89,14 @@ export const Aside = () => {
       <div className='aside__footer'>
         <div className='aside__icon--profile btn btn-secondary btn-lg'>Me</div>
         <h4 className='aside__h4'>Xanthe Neal</h4>
-        <button className='aside__button'>
-          <span className='material-symbols-rounded aside__icon--menu'>
+        <button className='aside__button--dropdown-menu'>
+          <span
+            className='material-symbols-rounded aside__icon--menu'
+            onClick={handleOpenDropdownMenu}
+          >
             keyboard_arrow_down
           </span>
+          <DropdownMenu />
         </button>
       </div>
       <button className='aside__button--close' onClick={handleCloseMenu}>
