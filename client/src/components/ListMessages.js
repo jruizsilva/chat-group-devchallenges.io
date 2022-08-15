@@ -9,16 +9,15 @@ const calcHeightChat = () => {
 export const ListMessages = () => {
   const [chatHeight, setChatHeight] = useState(calcHeightChat());
 
-  const handleChatHeightOnResize = () => {
-    setChatHeight(calcHeightChat());
-  };
-
   useEffect(() => {
+    const handleChatHeightOnResize = () => {
+      setChatHeight(calcHeightChat());
+    };
     window.addEventListener('resize', handleChatHeightOnResize);
     return () => {
       window.removeEventListener('resize', handleChatHeightOnResize);
     };
-  }, [handleChatHeightOnResize, calcHeightChat]);
+  }, []);
 
   return (
     <ul className='chat__ul' style={{ height: chatHeight }}>

@@ -1,20 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  showMenu: false,
+  isOpenMenu: false,
+  isOpenModal: false,
 };
 
 export const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    toggleShowMenu: (state) => {
-      state.showMenu = !state.showMenu;
+    openMenu: (state) => {
+      state.isOpenMenu = !state.isOpenMenu;
     },
     closeMenu: (state) => {
-      state.showMenu = false;
+      state.isOpenMenu = false;
+    },
+    openModal: (state) => {
+      state.isOpenModal = true;
+    },
+    closeModal: (state) => {
+      state.isOpenModal = false;
     },
   },
 });
 
-export const { toggleShowMenu, closeMenu } = uiSlice.actions;
+export const { openMenu, closeMenu, openModal, closeModal } = uiSlice.actions;

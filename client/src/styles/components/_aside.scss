@@ -11,6 +11,7 @@
   background-color: settings.$primary;
   display: flex;
   flex-direction: column;
+  max-width: 324px;
 
   overflow: hidden;
 
@@ -68,9 +69,9 @@
     height: 100%;
     width: 100%;
     border-radius: 12px;
-    font-size: 14px;
     font-weight: 500;
     outline: none;
+    font-size: 18px;
   }
   &__ul {
     overflow-y: auto;

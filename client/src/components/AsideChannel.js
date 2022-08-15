@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeMenu } from '../store/slices/ui/uiSlice';
+import { closeMenu, openModal } from '../store/slices/ui/uiSlice';
 
 let channelDesc = document.querySelector('.aside__p--channel');
 
@@ -15,13 +15,17 @@ export const AsideChannel = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
 
-  const { showMenu } = ui;
+  const { isOpenMenu } = ui;
 
   const handleBackClick = () => {
     navigate('/');
   };
   const handleCloseMenu = () => {
     dispatch(closeMenu());
+  };
+
+  const handleOpenModal = () => {
+    dispatch(openModal());
   };
 
   useEffect(() => {
@@ -42,7 +46,7 @@ export const AsideChannel = () => {
   }, []);
 
   return (
-    <aside className={`aside ${showMenu && 'aside--active'}`}>
+    <aside className={`aside ${isOpenMenu && 'aside--active'}`}>
       <header className='aside__header'>
         <button className='aside__button--back' onClick={handleBackClick}>
           <span className='material-symbols-rounded aside__icon--back'>
@@ -50,7 +54,7 @@ export const AsideChannel = () => {
           </span>
         </button>
         <h2 className='aside__h2'>All channels</h2>
-        <button className='aside__button'>
+        <button className='aside__button' onClick={handleOpenModal}>
           <span className='material-symbols-rounded'>add</span>
         </button>
       </header>

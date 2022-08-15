@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeMenu } from '../store/slices/ui/uiSlice';
+import { closeMenu, openModal } from '../store/slices/ui/uiSlice';
 
 const calcHeightChannels = () => {
   return window.innerHeight - 237;
@@ -13,7 +13,7 @@ export const Aside = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
 
-  const { showMenu } = ui;
+  const { isOpenMenu } = ui;
 
   console.log(ui);
   const handleChannelClick = () => {
@@ -22,6 +22,10 @@ export const Aside = () => {
 
   const handleCloseMenu = () => {
     dispatch(closeMenu());
+  };
+
+  const handleOpenModal = () => {
+    dispatch(openModal());
   };
 
   useEffect(() => {
@@ -35,10 +39,10 @@ export const Aside = () => {
   }, []);
 
   return (
-    <aside className={`aside ${showMenu && 'aside--active'}`}>
+    <aside className={`aside ${isOpenMenu && 'aside--active'}`}>
       <header className='aside__header'>
         <h2 className='aside__h2'>Channels</h2>
-        <button className='aside__button'>
+        <button className='aside__button' onClick={handleOpenModal}>
           <span className='material-symbols-rounded'>add</span>
         </button>
       </header>
