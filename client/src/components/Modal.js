@@ -1,19 +1,18 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { closeModal } from '../store/slices/ui/uiSlice';
+import { useSelector, useDispatch } from 'react-redux'
+import { closeModal } from '../store/slices/ui/uiSlice'
 
 export const Modal = () => {
-  const { ui } = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const { ui } = useSelector(state => state)
+  const dispatch = useDispatch()
 
-  const { isOpenModal } = ui;
+  const { isOpenModal } = ui
 
   const handleCloseModal = () => {
-    dispatch(closeModal());
-  };
-  const stopPropagation = (e) => {
-    e.stopPropagation();
-  };
+    dispatch(closeModal())
+  }
+  const stopPropagation = e => {
+    e.stopPropagation()
+  }
 
   return (
     <div
@@ -44,5 +43,5 @@ export const Modal = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}

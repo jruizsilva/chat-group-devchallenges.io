@@ -1,10 +1,9 @@
-import React from 'react';
-import { Chat } from './Chat';
+import { Chat } from './Chat'
 
 export const Main = () => {
   return (
     <main className='main'>
       <Chat />
     </main>
-  );
-};
+  )
+}

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Message = () => {
   return (
     <li className='chat__message'>
@@ -15,5 +13,5 @@ export const Message = () => {
         </p>
       </div>
     </li>
-  );
-};
+  )
+}

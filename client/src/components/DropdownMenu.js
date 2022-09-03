@@ -1,9 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 
 export const DropdownMenu = () => {
-  const { ui } = useSelector((state) => state);
-  const { isOpenDropdownMenu } = ui;
+  const { ui } = useSelector(state => state)
+  const { isOpenDropdownMenu } = ui
 
   return (
     <ul
@@ -26,5 +25,5 @@ export const DropdownMenu = () => {
         <p className='dropdown-menu__p'>Logout</p>
       </li>
     </ul>
-  );
-};
+  )
+}

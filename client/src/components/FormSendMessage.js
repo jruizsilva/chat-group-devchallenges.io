@@ -1,6 +1,5 @@
-import React from 'react';
-import { IoMdSend } from 'react-icons/io';
-import { IconContext } from 'react-icons';
+import { IoMdSend } from 'react-icons/io'
+import { IconContext } from 'react-icons'
 
 export const FormSendMessage = () => {
   return (
@@ -14,5 +13,5 @@ export const FormSendMessage = () => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}

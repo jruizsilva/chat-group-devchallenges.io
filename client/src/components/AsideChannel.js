@@ -1,59 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import {
   closeMenu,
   openModal,
   toggleDropdownMenu,
   closeDropdownMenu,
-} from '../store/slices/ui/uiSlice';
-import { DropdownMenu } from './DropdownMenu';
+} from '../store/slices/ui/uiSlice'
+import { DropdownMenu } from './DropdownMenu'
 
-let channelDesc = document.querySelector('.aside__p--channel');
+let channelDesc = document.querySelector('.aside__p--channel')
 
 const calcHeightMembers = (channelDescHeight = 0) => {
-  return window.innerHeight - (249 + channelDescHeight);
-};
+  return window.innerHeight - (249 + channelDescHeight)
+}
 
 export const AsideChannel = () => {
-  const [membersHeight, setMembersHeight] = useState(null);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { ui } = useSelector((state) => state);
+  const [membersHeight, setMembersHeight] = useState(null)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { ui } = useSelector(state => state)
 
-  const { isOpenMenu } = ui;
+  const { isOpenMenu } = ui
 
   const handleBackClick = () => {
-    navigate('/');
-    dispatch(closeDropdownMenu());
-  };
+    navigate('/')
+    dispatch(closeDropdownMenu())
+  }
   const handleCloseMenu = () => {
-    dispatch(closeMenu());
-  };
+    dispatch(closeMenu())
+  }
 
   const handleOpenModal = () => {
-    dispatch(openModal());
-  };
+    dispatch(openModal())
+  }
   const handleOpenDropdownMenu = () => {
-    dispatch(toggleDropdownMenu());
-  };
+    dispatch(toggleDropdownMenu())
+  }
 
   useEffect(() => {
-    channelDesc = document.querySelector('.aside__p--channel');
+    channelDesc = document.querySelector('.aside__p--channel')
     if (channelDesc?.clientHeight) {
-      setMembersHeight(calcHeightMembers(channelDesc.clientHeight));
+      setMembersHeight(calcHeightMembers(channelDesc.clientHeight))
     }
-  }, [membersHeight]);
+  }, [membersHeight])
 
   useEffect(() => {
     const handleMembersHeightOnResize = () => {
-      setMembersHeight(calcHeightMembers(channelDesc?.offsetHeight));
-    };
-    window.addEventListener('resize', handleMembersHeightOnResize);
+      setMembersHeight(calcHeightMembers(channelDesc?.offsetHeight))
+    }
+    window.addEventListener('resize', handleMembersHeightOnResize)
     return () => {
-      window.removeEventListener('resize', handleMembersHeightOnResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleMembersHeightOnResize)
+    }
+  }, [])
 
   return (
     <aside className={`aside ${isOpenMenu && 'aside--active'}`}>
@@ -117,5 +117,5 @@ export const AsideChannel = () => {
         </span>
       </button>
     </aside>
-  );
-};
+  )
+}

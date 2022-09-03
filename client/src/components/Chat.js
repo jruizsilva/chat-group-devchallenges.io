@@ -1,6 +1,5 @@
-import React from 'react';
-import { FormSendMessage } from './FormSendMessage';
-import { ListMessages } from './ListMessages';
+import { FormSendMessage } from './FormSendMessage'
+import { ListMessages } from './ListMessages'
 
 export const Chat = () => {
   return (
@@ -8,5 +7,5 @@ export const Chat = () => {
       <ListMessages />
       <FormSendMessage />
     </div>
-  );
-};
+  )
+}

@@ -1,52 +1,52 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import {
   closeMenu,
   openModal,
   toggleDropdownMenu,
   closeDropdownMenu,
-} from '../store/slices/ui/uiSlice';
-import { DropdownMenu } from './DropdownMenu';
+} from '../store/slices/ui/uiSlice'
+import { DropdownMenu } from './DropdownMenu'
 
 const calcHeightChannels = () => {
-  return window.innerHeight - 237;
-};
+  return window.innerHeight - 237
+}
 
 export const Aside = () => {
-  const [channelsHeight, setChannelsHeight] = useState(calcHeightChannels());
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { ui } = useSelector((state) => state);
+  const [channelsHeight, setChannelsHeight] = useState(calcHeightChannels())
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { ui } = useSelector(state => state)
 
-  const { isOpenMenu } = ui;
+  const { isOpenMenu } = ui
 
   const handleChannelClick = () => {
-    navigate('/channel/1');
-    dispatch(closeDropdownMenu());
-  };
+    navigate('/channel/1')
+    dispatch(closeDropdownMenu())
+  }
 
   const handleCloseMenu = () => {
-    dispatch(closeMenu());
-  };
+    dispatch(closeMenu())
+  }
 
   const handleOpenModal = () => {
-    dispatch(openModal());
-  };
+    dispatch(openModal())
+  }
 
   const handleOpenDropdownMenu = () => {
-    dispatch(toggleDropdownMenu());
-  };
+    dispatch(toggleDropdownMenu())
+  }
 
   useEffect(() => {
     const handleChannelsHeightOnResize = () => {
-      setChannelsHeight(calcHeightChannels());
-    };
-    window.addEventListener('resize', handleChannelsHeightOnResize);
+      setChannelsHeight(calcHeightChannels())
+    }
+    window.addEventListener('resize', handleChannelsHeightOnResize)
     return () => {
-      window.removeEventListener('resize', handleChannelsHeightOnResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleChannelsHeightOnResize)
+    }
+  }, [])
 
   return (
     <aside className={`aside ${isOpenMenu && 'aside--active'}`}>
@@ -105,5 +105,5 @@ export const Aside = () => {
         </span>
       </button>
     </aside>
-  );
-};
+  )
+}

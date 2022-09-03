@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { Message } from './Message';
+import { useState, useEffect } from 'react'
+import { Message } from './Message'
 
 const calcHeightChat = () => {
-  return window.innerHeight - 120;
-};
+  return window.innerHeight - 120
+}
 
 export const ListMessages = () => {
-  const [chatHeight, setChatHeight] = useState(calcHeightChat());
+  const [chatHeight, setChatHeight] = useState(calcHeightChat())
 
   useEffect(() => {
     const handleChatHeightOnResize = () => {
-      setChatHeight(calcHeightChat());
-    };
-    window.addEventListener('resize', handleChatHeightOnResize);
+      setChatHeight(calcHeightChat())
+    }
+    window.addEventListener('resize', handleChatHeightOnResize)
     return () => {
-      window.removeEventListener('resize', handleChatHeightOnResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleChatHeightOnResize)
+    }
+  }, [])
 
   return (
     <ul className='chat__ul' style={{ height: chatHeight }}>
@@ -30,5 +29,5 @@ export const ListMessages = () => {
       <Message />
       <Message />
     </ul>
-  );
-};
+  )
+}
